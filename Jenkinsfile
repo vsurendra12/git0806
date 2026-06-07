@@ -9,12 +9,17 @@ pipeline {
         }
         stage("sonar") {
             agent {
-                label java-slave
+                label {
+                    java-slave
                 steps {
                     echo "this is slave machine"
                     sh "hostname -i"
                 }
             }
+            
         }
+        
     }
+    
+}
 }
