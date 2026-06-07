@@ -7,7 +7,7 @@ pipeline {
             steps {
                 script {
                     def course = "k8s"
-                    println{"thanks for entrolling for ${course} course"}
+                    println("thanks for entrolling for ${course} course")
 
                 }
             }
