@@ -4,7 +4,7 @@ pipeline {
         stage("build") {
             steps {
                 echo "running on master"
-                sh "hostaname -i"
+                sh "hostname -i"
             }
         }
         stage("test"){
