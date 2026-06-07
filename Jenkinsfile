@@ -1,19 +1,15 @@
 pipeline {
-    agent any
+    agent {
+        label "java-slave"
+    }
     stages {
-        stage("build") {
+        stage("build"){
             steps {
-                echo "running on master"
-                sh "hostname -i"
-            }
-        }
-        stage("test"){
-            agent {
-                label "java-slave"
-            }
-            steps {
-                echo "running on slave machine"
-                sh "hostname -i"
+                script {
+                    def course = "k8s"
+                    println{"thanks for entrolling for ${course} course"}
+
+                }
             }
         }
     }
