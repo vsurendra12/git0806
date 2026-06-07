@@ -3,23 +3,18 @@ pipeline {
     stages {
         stage("build") {
             steps {
-                echo "build stage in master machine"
+                echo "running on master"
+                sh "hostaname -i"
+            }
+        }
+        stage("test"){
+            agent {
+                label "java-slave"
+            }
+            steps {
+                echo "running on slave machine"
                 sh "hostname -i"
             }
         }
-        stage("sonar") {
-            agent {
-                label {
-                    java-slave
-                steps {
-                    echo "this is slave machine"
-                    sh "hostname -i"
-                }
-            }
-            
-        }
-        
     }
-    
-}
 }
